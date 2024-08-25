@@ -1,11 +1,11 @@
 {
   "name": "cwh-responsive-website",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "functions/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon functions/server.js",
-    "build": "npm deploy --prod"
+    "build": "echo 'No build step required'"
   },
   "author": "siddardha",
   "license": "MIT",
@@ -13,8 +13,6 @@
   "dependencies": {
     "express": "^4.19.2",
     "mongoose": "^8.5.3",
-    "netlify-cli": "^17.34.2",
-    "netlify-lambda": "^2.0.16",
     "serverless-http": "^3.2.0"
   },
   "devDependencies": {
