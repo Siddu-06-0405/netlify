@@ -12,16 +12,20 @@ let db;
 client.connect(err => {
   if (err) {
     console.error('Failed to connect to MongoDB', err);
-    return;
+    process.exit(1); // Exit the process if the database connection fails
   }
   db = client.db('databaseName'); // replace 'databaseName' with your actual database name
+  console.log('Connected to MongoDB');
 });
 
-const Users = db.collection('responses'); // Collection name
+app.post('/post', async (req, res) => {
+  if (!db) {
+    return res.status(500).send("Database not initialized");
+  }
 
-app.post('.netlify/functions/server/post', async (req, res) => {
   try {
     const { name1, phone, email, text } = req.body;
+    const Users = db.collection('responses'); // Collection name
     await Users.insertOne({ name1, phone, email, text });
     res.send("Response recorded");
   } catch (err) {
