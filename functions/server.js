@@ -39,5 +39,5 @@ app.post('/post', async (req, res) => {
     res.status(500).send("An error occurred while saving the response.");
   }
 });
-app.use('/.netlify/functions/server', router);
+
 module.exports.handler = serverless(app);
