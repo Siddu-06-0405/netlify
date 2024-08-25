@@ -19,7 +19,7 @@ client.connect(err => {
 
 const Users = db.collection('responses'); // Collection name
 
-app.post('/post', async (req, res) => {
+app.post('.netlify/functions/server/post', async (req, res) => {
   try {
     const { name1, phone, email, text } = req.body;
     await Users.insertOne({ name1, phone, email, text });
