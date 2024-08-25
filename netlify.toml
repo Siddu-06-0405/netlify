@@ -1,6 +1,5 @@
 [build]
-  publish = "dist"  # Folder with static files
-  command = ""  # Empty if no build step
+  functions = "functions"
 
 [functions]
-  directory = "functions"  # Folder with serverless functions
+  directory = "functions"
