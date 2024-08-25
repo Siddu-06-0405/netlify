@@ -1,13 +1,10 @@
-const mongoose = require('mongoose');
-const { MongoClient } = require('mongodb');
-const path = require('path');
-const serverless = require('serverless-http');
 const express = require('express');
+const serverless = require('serverless-http');
+const { MongoClient } = require('mongodb');
 
 const app = express();
 app.use(express.json());
 
-// MongoDB connection setup
 const uri = 'mongodb+srv://surya:surya123@cluster0.wjg4fyi.mongodb.net';
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 let db;
@@ -20,13 +17,6 @@ client.connect(err => {
   db = client.db('databaseName'); // replace 'databaseName' with your actual database name
 });
 
-// Schema and model
-const schema = new mongoose.Schema({
-  name1: String,
-  phone: String,
-  email: String,
-  text: String,
-});
 const Users = db.collection('responses'); // Collection name
 
 app.post('/post', async (req, res) => {
