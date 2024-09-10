@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json());
 
 // MongoDB connection setup
-const uri = 'mongodb+srv://surya:surya123@cluster0.wjg4fyi.mongodb.net';
+const uri = '';
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 let db;
 
